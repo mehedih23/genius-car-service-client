@@ -7,7 +7,7 @@ const Manage = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are You Sure to Delete?')
         if (proceed) {
-            const url = `http://localhost:5000/service/${id}`;
+            const url = `https://genius-car-service.herokuapp.com/service/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

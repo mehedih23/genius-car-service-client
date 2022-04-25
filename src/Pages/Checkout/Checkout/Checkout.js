@@ -22,7 +22,7 @@ const Checkout = () => {
         const userOrderDetails = {
             name, address, email, orderName, phone
         }
-        axios.post('http://localhost:5000/order', userOrderDetails)
+        axios.post('https://genius-car-service.herokuapp.com/order', userOrderDetails)
             .then(response => {
                 const { data } = response
                 if (data.insertedId) {
