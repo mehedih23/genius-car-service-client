@@ -3,6 +3,7 @@ import { signOut } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useNavigate } from 'react-router-dom'
+import axiosPrivate from '../../api/axiosPrivate'
 import auth from '../../firebase.init'
 
 const Orders = () => {
@@ -15,11 +16,7 @@ const Orders = () => {
             const email = user.email;
             const url = `https://genius-car-service.herokuapp.com/order?email=${email}`;
             try {
-                const { data } = await axios.get(url, {
-                    headers: {
-                        authorization: `Bearer${localStorage.getItem('accessToken')}`
-                    }
-                });
+                const { data } = await axiosPrivate.get(url);
                 setOrders(data);
             }
             catch (error) {
